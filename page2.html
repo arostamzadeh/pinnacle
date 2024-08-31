@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نحوه کار با PinnacleMarkets</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* اضافه کردن استایل برای بخش‌های اطلاعات */
+        .info-section {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7); /* پس‌زمینه نیمه شفاف */
+            border-radius: 10px;
+            display: none; /* مخفی به‌طور پیش‌فرض */
+        }
+
+        .pdf-section {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7); /* پس‌زمینه نیمه شفاف */
+            border-radius: 10px;
+            display: none; /* مخفی به‌طور پیش‌فرض */
+        }
+
+        .pdf-section iframe {
+            width: 100%;
+            height: 600px;
+        }
+
+        .download-button {
+            display: block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #00ff00;
+            color: #000;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .download-button:hover {
+            background-color: #00cc00;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>نحوه کار با PinnacleMarkets</h1>
+    </header>
+    <nav>
+        <div class="menu-item" onclick="toggleContent('register_info')">📝 دریافت لینک ثبت نام</div>
+        <div class="info-section" id="register_info">
+            <h2>کد ثبت نام شما</h2>
+            <p id="registration-code">AD475F</p>
+            <button class="copy-button" onclick="copyToClipboard('registration-code')">کپی کد</button>
+            <h2>لینک ثبت نام</h2>
+            <p id="registration-link"><a href="https://eichain.io?referral=AD475F" target="_blank">https://eichain.io?referral=AD475F</a></p>
+            <button class="copy-button" onclick="copyToClipboard('registration-link')">کپی لینک</button>
+        </div>
+        
+        <div class="menu-item" onclick="toggleContent('metamask_install')">🖊️ آموزش نصب کیف پول متامسک</div>
+        <div class="pdf-section" id="metamask_install">
+            <iframe src="metamask_install.pdf" type="application/pdf"></iframe>
+            <a class="download-button" href="metamask_install.pdf" download>دانلود PDF</a>
+        </div>
+
+        <div class="menu-item" onclick="toggleContent('marketing_plan')">📈 معرفی پلن مارکتینگ</div>
+        <div class="pdf-section" id="marketing_plan">
+            <iframe src="marketing_plan.pdf" type="application/pdf"></iframe>
+            <a class="download-button" href="marketing_plan.pdf" download>دانلود PDF</a>
+        </div>
+
+        <div class="menu-item" onclick="toggleContent('earnings_plan')">💰 آموزش پلن درآمدزایی</div>
+        <div class="pdf-section" id="earnings_plan">
+            <iframe src="earnings_plan.pdf" type="application/pdf"></iframe>
+            <a class="download-button" href="earnings_plan.pdf" download>دانلود PDF</a>
+        </div>
+
+        <div class="menu-item" onclick="goBack()">⬅️ بازگشت به صفحه قبلی</div>
+    </nav>
+    <main id="content">
+        <p>لطفاً از منوی بالا گزینه مورد نظر خود را انتخاب کنید.</p>
+    </main>
+    <script src="script.js"></script>
+    <script>
+        function toggleContent(contentId) {
+            // مخفی کردن تمام بخش‌های اطلاعات و PDF
+            const infoSections = document.querySelectorAll('.info-section');
+            const pdfSections = document.querySelectorAll('.pdf-section');
+            
+            infoSections.forEach(section => {
+                if (section.id === contentId) {
+                    section.style.display = section.style.display === 'block' ? 'none' : 'block';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+
+            pdfSections.forEach(section => {
+                if (section.id === contentId) {
+                    section.style.display = section.style.display === 'block' ? 'none' : 'block';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        }
+
+        function copyToClipboard(id) {
+            // انتخاب متن مورد نظر
+            const text = document.getElementById(id).innerText;
+            const tempInput = document.createElement('input');
+            document.body.appendChild(tempInput);
+            tempInput.value = text;
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            // اطلاع رسانی به کاربر
+            alert('متن کپی شد: ' + text);
+        }
+
+        function goBack() {
+            // بازگشت به صفحه قبلی
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

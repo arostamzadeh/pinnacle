@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آموزش‌های اولیه</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .content-section {
+            display: none; /* مخفی کردن بخش‌های محتوا به‌طور پیش‌فرض */
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+
+        .download-button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #00ff00;
+            color: #000;
+            text-decoration: none;
+            border-radius: 5px;
+            display: block;
+            text-align: center;
+        }
+
+        .download-button:hover {
+            background-color: #00cc00;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>آموزش‌های اولیه</h1>
+    </header>
+    <nav>
+        <div class="menu-item" onclick="toggleContent('company_intro')">💼 معرفی کمپانی PinnacleMarkets</div>
+        <div id="company_intro" class="content-section">
+            <embed id="pdf-viewer-company" src="company_intro.pdf" type="application/pdf" width="100%" height="600px">
+            <a id="download-link-company" class="download-button" href="company_intro.pdf" download>دانلود PDF</a>
+        </div>
+
+        <div class="menu-item" onclick="toggleContent('managers_intro')">👨🏻‍✈️ آشنایی با مدیران</div>
+        <div id="managers_intro" class="content-section">
+            <video id="video-player-managers" controls width="100%">
+                <source src="managers_intro.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="menu-item" onclick="toggleContent('neuro_mind')">🧠💼 آشنایی با هوش مصنوعی NeuroMind Pro</div>
+        <div id="neuro_mind" class="content-section">
+            <video id="video-player-neuro" controls width="100%">
+                <source src="neuro_mind.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="menu-item" onclick="window.location.href='index.html'">⬅️ بازگشت به منو اصلی</div>
+    </nav>
+    <main>
+        <p>لطفاً از منوی بالا گزینه مورد نظر خود را انتخاب کنید.</p>
+    </main>
+    <script>
+        function toggleContent(contentId) {
+            const contentSection = document.getElementById(contentId);
+
+            // بررسی اینکه آیا بخش نمایش داده شده یا نه
+            if (contentSection.style.display === 'block') {
+                contentSection.style.display = 'none';
+            } else {
+                // مخفی کردن همه بخش‌های دیگر
+                document.querySelectorAll('.content-section').forEach(section => {
+                    section.style.display = 'none';
+                });
+
+                // نمایش بخش مورد نظر
+                contentSection.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

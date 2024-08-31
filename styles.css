@@ -1,0 +1,62 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('background.jpg'); /* نام و مسیر فایل تصویر پس‌زمینه */
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* ارتفاع کل صفحه */
+}
+
+header h1 {
+    color: #00ff00; /* رنگ سبز فسفری برای عنوان */
+    margin-top: 20px;
+    font-family: 'Roboto', sans-serif; /* فونت جذاب */
+}
+
+nav {
+    margin: 20px 0;
+}
+
+.menu-item {
+    display: block;
+    padding: 15px 30px;
+    margin: 10px auto;
+    background-color: rgba(0, 0, 0, 0.7); /* پس‌زمینه منوها با شفافیت */
+    color: #00ff00; /* رنگ سبز فسفری برای متن منوها */
+    font-size: 1.2em;
+    border-radius: 10px;
+    text-decoration: none; /* حذف خط زیر لینک‌ها */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    max-width: 300px;
+}
+
+.menu-item:hover {
+    background-color: rgba(0, 255, 0, 0.8); /* رنگ پس‌زمینه در حالت هاور */
+}
+
+main {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* پس‌زمینه نیمه شفاف برای محتوای اصلی */
+    border-radius: 15px;
+    display: inline-block;
+    max-width: 80%;
+    margin: 0 auto;
+    color: #fff;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    color: #000;
+    background-color: #00ff00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #00cc00;
+}
